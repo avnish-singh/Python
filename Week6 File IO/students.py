@@ -17,8 +17,8 @@
 
 
 #CSV Library
-import csv
-students = []
+# import csv
+# students = []
 
 # with open('students.csv') as file:
 #     reader = csv.reader(file)
@@ -26,10 +26,23 @@ students = []
 #         students.append({"name": name, "home": home})
 
 
-with open('students.csv') as file:
-    reader = csv.DictReader(file)
-    for row in reader:
-        students.append({"name": row["name"], "home": row["home"]})
+# with open('students.csv') as file:
+#     reader = csv.DictReader(file)
+#     for row in reader:
+#         # students.append({"name": row["name"], "home": row["home"]})
+#         students.append(row)
 
-for student in sorted(students, key=lambda student: student["name"]): # sort students by name; lamda is an anonymous function that takes a student and returns the student's name
-    print(f"{student['name']} is from {student['home']}")
+# for student in sorted(students, key=lambda student: student["name"]): # sort students by name; lamda is an anonymous function that takes a student and returns the student's name
+#     print(f"{student['name']} is from {student['home']}")
+
+import csv
+
+name=input("Name: ")
+home=input("Home: ")
+
+# with open("students.csv", "a") as file:
+#     writer = csv.writer(file)
+#     writer.writerow([name, home])
+with open("students.csv", "a") as file:
+    writer = csv.DictWriter(file, fieldnames=["name", "home"])
+    writer.writerow({"home": home,"name": name },)
