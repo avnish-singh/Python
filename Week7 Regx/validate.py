@@ -43,7 +43,11 @@ email = input("What's your email? ").strip()
 
 # if re.search(r"^..*@.+\.edu$", email): # (..* and .+* is same)
 # if re.search(r"^[^@]+@+[^@]+\.edu$", email): # ([^@] will not allow @ on that position)
-if re.search(r"^\w+@\w+\.\w+\.edu$", email, re.IGNORECASE): # (..* and .+* is same)
+if re.search(r"^\w+@(\w+\.)?\w+\.edu$", email, re.IGNORECASE): # (..* and .+* is same)
     print("valid")
 else:
     print("Invalid")
+
+
+# Mail Regex 
+#^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$
